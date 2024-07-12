@@ -1,1 +1,3 @@
-# Deployment-Flights_Delays-model-
+# Flight Delay Prediction Application
+
+Best-performing predictive model for flight delays into a user-friendly web application using Flask. The application offers visualizations and actionable insights to help users interpret predictions and make informed decisions. The chosen model, selected based on evaluation metrics, is saved as `model_implement.pkl`. The model was developed using data from the repository "Predictive-Modeling-for-Flight-Delays-Using-Historical-External-Data_with-Deploy_Flight-delay-app", where comprehensive data collection, preprocessing, and feature engineering were conducted.
