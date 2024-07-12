@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flight Delay Prediction</title>
+</head>
+<body>
+    <h2>Flight Delay Prediction</h2>
+    <form id="prediction-form">
+        <label for="departure-time">Departure Time:</label>
+        <input type="text" id="departure-time" name="departure-time"><br><br>
+        
+        <label for="carrier">Carrier:</label>
+        <input type="text" id="carrier" name="carrier"><br><br>
+        
+        <label for="destination">Destination:</label>
+        <input type="text" id="destination" name="destination"><br><br>
+        
+        <button type="button" onclick="predict()">Predict Delay</button>
+    </form>
+    
+    <div id="prediction-result">
+        <!-- Predictions will be displayed here -->
+    </div>
+
+    <!-- Example to display a plot -->
+    <img id="plot-img" src="" alt="Prediction Plot">
+    
+    <script>
+    function predict() {
+        var form = document.getElementById('prediction-form');
+        var formData = new FormData(form);
+
+        fetch('/predict', {
+            method: 'POST',
+            body: JSON.stringify(Object.fromEntries(formData)),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('prediction-result').innerText = 'Predicted Delay: ' + data.prediction;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }
+    </script>
+</body>
+</html>
